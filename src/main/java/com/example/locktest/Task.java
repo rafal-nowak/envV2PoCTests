@@ -23,7 +23,6 @@ public class Task {
     private String workspaceUrl;
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
-//    @Version
     private Long version;
 
     public Task(String name, String description, String workspaceUrl, TaskStatus status, Long version) {
@@ -32,6 +31,15 @@ public class Task {
         this.workspaceUrl = workspaceUrl;
         this.status = status;
         this.version = version;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
+
+    public Long incrementVersion(){
+        version += 1;
+        return version;
     }
 
     @Override
